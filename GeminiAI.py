@@ -65,9 +65,6 @@ class GeminiAIMod(loader.Module):
 
         user_id = str(sender.id)
 
-        if user_id in self.replied_users:
-            return
-
         if self.client is None or not hasattr(self, "gemini"):
             return
 
@@ -96,8 +93,6 @@ class GeminiAIMod(loader.Module):
 
             await message.reply(answer)
 
-            self.replied_users.add(user_id)
-            self._save()
 
         except Exception as e:
             import logging
