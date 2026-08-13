@@ -1,3 +1,4 @@
+# scope: requires: google-genai
 import os
 
 from google import genai
