@@ -99,8 +99,9 @@ class GeminiAIMod(loader.Module):
             self.replied_users.add(user_id)
             self._save()
 
-        except Exception:
-            return
+        except Exception as e:
+            import logging
+            logging.getLogger("GeminiAI").exception("GeminiAI error: %s", e)
 
     @loader.command()
     async def aion(self, message):
